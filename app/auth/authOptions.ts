@@ -4,19 +4,19 @@ import prisma from "@/prisma/client";
 import { NextAuthOptions } from "next-auth";
 
 const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      httpOptions: {
-        timeout: 5000,
-      },
-    }),
-  ],
-  session: {
-    strategy: "jwt",
-  },
+	adapter: PrismaAdapter(prisma),
+	providers: [
+		GoogleProvider({
+			clientId: process.env.GOOGLE_CLIENT_ID!,
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+			httpOptions: {
+				timeout: 6000,
+			},
+		}),
+	],
+	session: {
+		strategy: "jwt",
+	},
 };
 
 export default authOptions;
